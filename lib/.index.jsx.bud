@@ -1,0 +1,14 @@
+'use strict'
+
+const { lib } = require('the-templates')
+const pkg = require('../package.json')
+
+module.exports = lib({
+  dirname: __dirname,
+  pkg,
+  index: 'TheSection'
+})
+
+if (!module.parent) {
+  require('coz').render(__filename)
+}
