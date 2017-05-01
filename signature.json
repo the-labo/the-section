@@ -1,0 +1,122 @@
+{
+  "TheAccordionSection": {
+    "description": "Accordion section",
+    "displayName": "TheAccordionSection",
+    "methods": [
+      {
+        "name": "getInnerHeight",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "toggleOpen",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "Header",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "Body",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "open": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Open  when mounted",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "heading": {
+        "type": {
+          "name": "node"
+        },
+        "required": true,
+        "description": "Heading component"
+      }
+    }
+  },
+  "TheSection": {
+    "description": "Section of the-components",
+    "displayName": "TheSection",
+    "methods": [
+      {
+        "name": "Header",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "Body",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ]
+  },
+  "TheSectionStyle": {
+    "description": "Style for TheSection",
+    "displayName": "TheSectionStyle",
+    "methods": [],
+    "props": {
+      "options": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style options",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      }
+    }
+  }
+}
