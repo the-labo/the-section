@@ -1,7 +1,7 @@
 /**
  * Section of the-components
  * @module the-section
- * @version 1.0.1
+ * @version 1.0.2
  */
 'use strict'
 
