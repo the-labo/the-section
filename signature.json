@@ -99,7 +99,20 @@
         ],
         "returns": null
       }
-    ]
+    ],
+    "props": {
+      "spinning": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
   },
   "TheSectionStyle": {
     "description": "Style for TheSection",

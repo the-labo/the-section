@@ -76,12 +76,14 @@ Usage
 
 import React from 'react'
 import { TheSection, TheAccordionSection, TheSectionStyle } from 'the-section'
+import { TheSpinStyle } from 'the-spin'
 
 class ExampleComponent extends React.PureComponent {
   render () {
     return (
       <div>
         <TheSectionStyle/>
+        <TheSpinStyle/>
 
         <h3>Normal section</h3>
         <TheSection>
@@ -93,6 +95,12 @@ class ExampleComponent extends React.PureComponent {
 
         <h3>Lined header section</h3>
         <TheSection>
+          <TheSection.Header lined>This is lined header</TheSection.Header>
+          <TheSection.Body>This is content</TheSection.Body>
+        </TheSection>
+
+        <h3>Spinning section</h3>
+        <TheSection spinning>
           <TheSection.Header lined>This is lined header</TheSection.Header>
           <TheSection.Body>This is content</TheSection.Body>
         </TheSection>
@@ -142,6 +150,11 @@ Accordion section
 
 Section of the-components
 
+**Props**
+
+| Name | Type | Description | Default |
+| --- | --- | ---- | ---- |
+| `spinning` | bool  |  | `false` |
 
 ### TheSectionStyle
 

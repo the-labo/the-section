@@ -40,7 +40,8 @@ TheSectionStyle.data = (options) => {
         margin: '16px 0',
         display: 'block',
         fontWeight: 'normal',
-        backgroundColor
+        backgroundColor,
+        position: 'relative'
       },
       '.the-section-header': {
         borderBottom: borderColor,

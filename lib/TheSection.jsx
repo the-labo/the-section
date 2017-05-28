@@ -3,6 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import { TheSpin } from 'the-spin'
 import TheSectionStyle from './TheSectionStyle'
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
@@ -15,6 +16,7 @@ class TheSection extends React.PureComponent {
     const { props } = s
     let {
       className,
+      spinning,
       children
     } = props
     return (
@@ -22,6 +24,10 @@ class TheSection extends React.PureComponent {
                {...eventHandlersFor(props, { except: [] })}
                className={classnames('the-section', className)}
       >
+        <TheSpin className='the-section-spin'
+                 cover
+                 size='x-large'
+                 enabled={spinning}/>
         {children}
       </section>
     )
@@ -56,9 +62,13 @@ class TheSection extends React.PureComponent {
 
 TheSection.Style = TheSectionStyle
 
-TheSection.propTypes = {}
+TheSection.propTypes = {
+  spinning: PropTypes.bool
+}
 
-TheSection.defaultProps = {}
+TheSection.defaultProps = {
+  spinning: false
+}
 
 TheSection.displayName = 'TheSection'
 
