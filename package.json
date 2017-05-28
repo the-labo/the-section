@@ -1,6 +1,6 @@
 {
   "name": "the-section",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Section of the-components",
   "main": "shim",
   "scripts": {
