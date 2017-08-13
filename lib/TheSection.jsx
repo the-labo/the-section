@@ -2,8 +2,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import c from 'classnames'
 import { TheSpin } from 'the-spin'
+import { TheButton } from 'the-button'
 import TheSectionStyle from './TheSectionStyle'
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
@@ -13,16 +14,16 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 class TheSection extends React.PureComponent {
   render () {
     const s = this
-    const { props } = s
-    let {
+    const {props} = s
+    const {
       className,
       spinning,
       children
     } = props
     return (
-      <section {...htmlAttributesFor(props, { except: [ 'className' ] })}
-               {...eventHandlersFor(props, { except: [] })}
-               className={classnames('the-section', className)}
+      <section {...htmlAttributesFor(props, {except: ['className']})}
+               {...eventHandlersFor(props, {except: []})}
+               className={c('the-section', className)}
       >
         <TheSpin className='the-section-spin'
                  cover
@@ -34,25 +35,43 @@ class TheSection extends React.PureComponent {
   }
 
   static Header (props) {
-    let { className, children, lined } = props
+    const {
+      className,
+      children,
+      lined,
+      actionText,
+      actionTo,
+      onAction
+    } = props
     return (
-      <h2 {...htmlAttributesFor(props, { except: [ 'className' ] })}
-          {...eventHandlersFor(props, { except: [] })}
-          className={classnames('the-section-header', className, {
+      <h2 {...htmlAttributesFor(props, {except: ['className']})}
+          {...eventHandlersFor(props, {except: []})}
+          className={c('the-section-header', className, {
             'the-section-header-lined': lined
           })}
       >
-        {children}
+        <span className="the-section-header-text">
+          {children}
+        </span>
+        {
+          actionText && (
+            <TheButton className='the-section-header-action'
+                       to={actionTo}
+                       onClick={onAction}
+                       simple
+            >{actionText}</TheButton>
+          )
+        }
       </h2>
     )
   }
 
   static Body (props) {
-    let { className, children } = props
+    let {className, children} = props
     return (
-      <div {...htmlAttributesFor(props, { except: [ 'className' ] })}
-           {...eventHandlersFor(props, { except: [] })}
-           className={classnames('the-section-body', className)}
+      <div {...htmlAttributesFor(props, {except: ['className']})}
+           {...eventHandlersFor(props, {except: []})}
+           className={c('the-section-body', className)}
       >
         {children}
       </div>

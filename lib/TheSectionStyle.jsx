@@ -7,10 +7,10 @@ import TheStyle from 'the-style'
 import { asStyleData } from 'the-component-util'
 
 /** Style for TheSection */
-const TheSectionStyle = ({ id, className, options }) => (
-  <TheStyle { ...{ id } }
-            className={ classnames('the-section-style', className) }
-            styles={ TheSectionStyle.data(options) }
+const TheSectionStyle = ({id, className, options}) => (
+  <TheStyle {...{id}}
+            className={classnames('the-section-style', className)}
+            styles={TheSectionStyle.data(options)}
   />
 )
 
@@ -25,8 +25,8 @@ TheSectionStyle.defaultProps = {
 }
 
 TheSectionStyle.data = (options) => {
-  const { ThemeValues } = TheStyle
-  let {
+  const {ThemeValues} = TheStyle
+  const {
     borderColor = ThemeValues.borderColor,
     lightBorderColor = ThemeValues.lightBorderColor,
     backgroundColor = ThemeValues.backgroundColor,
@@ -50,6 +50,9 @@ TheSectionStyle.data = (options) => {
         position: 'relative',
         boxSizing: 'border-box',
         padding: '0 8px 8px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         '&.the-section-header-lined': {
           fontSize: '14px',
           borderBottom: '1px solid #F0F0F0',
@@ -58,6 +61,11 @@ TheSectionStyle.data = (options) => {
           marginBottom: '4px',
           color: '#999'
         },
+        '.the-section-header-action': {
+          minHeight: '16px',
+          margin: 0,
+          padding: '2px 4px'
+        }
       },
       '.the-section-body': {
         display: 'block',
@@ -83,8 +91,8 @@ TheSectionStyle.data = (options) => {
         margin: '-1px',
         fontSize: '1em',
         cursor: 'pointer',
-        '&:hover': { opacity: hoverOpacity },
-        '&:active': { opacity: activeOpacity },
+        '&:hover': {opacity: hoverOpacity},
+        '&:active': {opacity: activeOpacity},
         position: 'relative',
         lineHeight: tappableHeight,
         height: tappableHeight + 2,
