@@ -40,6 +40,7 @@ class TheSection extends React.PureComponent {
       children,
       lined,
       actionText,
+      actionIcon,
       actionTo,
       onAction
     } = props
@@ -57,6 +58,7 @@ class TheSection extends React.PureComponent {
           actionText && (
             <TheButton className='the-section-header-action'
                        to={actionTo}
+                       icon={actionIcon}
                        onClick={onAction}
                        simple
             >{actionText}</TheButton>

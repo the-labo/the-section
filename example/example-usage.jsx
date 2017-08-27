@@ -25,6 +25,7 @@ class ExampleComponent extends React.PureComponent {
         <TheSection>
           <TheSection.Header lined
                              actionText='edit'
+                             actionIcon='fa fa-pencil'
                              onAction={() => console.log('Edit button pressed')}
           >This is lined header</TheSection.Header>
           <TheSection.Body>This is content</TheSection.Body>
