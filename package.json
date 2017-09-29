@@ -1,6 +1,6 @@
 {
   "name": "the-section",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Section of the-components",
   "main": "shim",
   "scripts": {
@@ -30,25 +30,25 @@
   "homepage": "https://github.com/the-labo/the-section#readme",
   "dependencies": {
     "classnames": "^2.2.5",
-    "prop-types": "^15.5.10",
-    "the-button": "^1.3.5",
-    "the-component-util": "^1.4.1",
-    "the-icon": "^1.0.6",
-    "the-spin": "^1.0.1",
-    "the-style": "^1.2.4"
+    "prop-types": "^15.6.0",
+    "the-button": "^2.0.0",
+    "the-component-util": "^1.5.1",
+    "the-icon": "^2.0.0",
+    "the-spin": "^2.0.0",
+    "the-style": "^2.0.0"
   },
   "devDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
-    "the-component-demo": "^2.0.15",
+    "the-component-demo": "^3.0.3",
     "the-script-build": "^1.3.4",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
-    "the-script-test": "^1.0.1",
+    "the-script-test": "^2.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^1.1.6"
+    "the-templates": "^2.0.0"
   },
   "peerDependencies": {
     "react": ">=15",
