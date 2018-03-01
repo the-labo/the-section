@@ -31,24 +31,24 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "the-button": "^3.0.1",
-    "the-component-util": "^2.1.0",
-    "the-icon": "^4.0.1",
-    "the-spin": "^3.0.0",
+    "the-button": "^3.0.6",
+    "the-component-util": "^2.1.2",
+    "the-icon": "^4.0.2",
+    "the-spin": "^3.1.0",
     "the-style": "^2.1.0"
   },
   "devDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "the-component-demo": "^4.0.1",
-    "the-script-build": "^2.0.1",
+    "the-component-demo": "^4.0.6",
+    "the-script-build": "^2.0.3",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^2.1.11"
+    "the-templates": "^2.2.1"
   },
   "peerDependencies": {
     "react": ">=15",

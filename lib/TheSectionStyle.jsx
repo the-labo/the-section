@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import TheStyle from 'the-style'
+import { TheStyle } from 'the-style'
 import { asStyleData } from 'the-component-util'
 
 /** Style for TheSection */
@@ -64,7 +64,8 @@ TheSectionStyle.data = (options) => {
         '.the-section-header-action': {
           minHeight: '16px',
           margin: 0,
-          padding: '2px 4px'
+          padding: '2px 4px',
+          flexGrow: 0,
         }
       },
       '.the-section-body': {

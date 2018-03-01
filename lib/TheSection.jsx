@@ -11,10 +11,9 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 /**
  * Section of the-components
  */
-class TheSection extends React.PureComponent {
+class TheSection extends React.Component {
   render () {
-    const s = this
-    const {props} = s
+    const {props} = this
     const {
       className,
       spinning,

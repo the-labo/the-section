@@ -4,45 +4,43 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TheSection from './TheSection'
-import TheIcon from 'the-icon'
+import { TheIcon } from 'the-icon'
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
 /**
  * Accordion section
  */
-class TheAccordionSection extends React.PureComponent {
+class TheAccordionSection extends React.Component {
   constructor (props) {
     super(props)
-    const s = this
-    s.inner = null
-    s.state = {
+    this.inner = null
+    this.state = {
       open: props.open
     }
   }
 
   render () {
-    const s = this
-    const { props, state } = s
+    const {props, state} = this
     let {
       className,
       children,
       heading
     } = props
-    let { open } = state
-    const { Header, Body } = TheAccordionSection
+    let {open} = state
+    const {Header, Body} = TheAccordionSection
     return (
-      <TheSection {...htmlAttributesFor(props, { except: [ 'className' ] })}
-                  {...eventHandlersFor(props, { except: [] })}
+      <TheSection {...htmlAttributesFor(props, {except: ['className']})}
+                  {...eventHandlersFor(props, {except: []})}
                   className={classnames('the-accordion-section', className, {
                     'the-accordion-section-open': open,
                     'the-accordion-section-closed': !open
                   })}
-                  style={{ maxHeight: s.getInnerHeight() }}
+                  style={{maxHeight: this.getInnerHeight()}}
       >
         <div className='the-accordion-section-inner'
-             ref={(inner) => { s.inner = inner }}
+             ref={(inner) => { this.inner = inner }}
         >
-          <Header onClick={(e) => s.toggleOpen()}
+          <Header onClick={(e) => this.toggleOpen()}
                   open={open}
           >
             {heading}
@@ -56,23 +54,21 @@ class TheAccordionSection extends React.PureComponent {
   }
 
   getInnerHeight () {
-    const s = this
-    let { inner } = s
+    let {inner} = this
     return inner && inner.offsetHeight
   }
 
   toggleOpen () {
-    const s = this
-    s.setState({
-      open: !s.state.open
+    this.setState({
+      open: !this.state.open
     })
   }
 
   static Header (props) {
-    let { className, children } = props
+    let {className, children} = props
     return (
-      <TheSection.Header {...htmlAttributesFor(props, { except: [ 'className' ] })}
-                         {...eventHandlersFor(props, { except: [] })}
+      <TheSection.Header {...htmlAttributesFor(props, {except: ['className']})}
+                         {...eventHandlersFor(props, {except: []})}
                          className={classnames('the-accordion-section-header', className)}
       >
         <TheIcon className={classnames('the-accordion-header-icon', TheAccordionSection.UP_ICON)}/>
@@ -82,10 +78,10 @@ class TheAccordionSection extends React.PureComponent {
   }
 
   static Body (props) {
-    let { className, children } = props
+    let {className, children} = props
     return (
-      <TheSection.Body {...htmlAttributesFor(props, { except: [ 'className' ] })}
-                       {...eventHandlersFor(props, { except: [] })}
+      <TheSection.Body {...htmlAttributesFor(props, {except: ['className']})}
+                       {...eventHandlersFor(props, {except: []})}
                        className={classnames('the-accordion-section-body', className)}
       >
         {children}
