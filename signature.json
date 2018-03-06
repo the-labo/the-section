@@ -4,6 +4,34 @@
     "displayName": "TheAccordionSection",
     "methods": [
       {
+        "name": "Body",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "Header",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "getInnerHeight",
         "docblock": null,
         "modifiers": [],
@@ -16,54 +44,26 @@
         "modifiers": [],
         "params": [],
         "returns": null
-      },
-      {
-        "name": "Header",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "props",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "Body",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "props",
-            "type": null
-          }
-        ],
-        "returns": null
       }
     ],
     "props": {
-      "open": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Open  when mounted",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
       "heading": {
         "type": {
           "name": "node"
         },
         "required": true,
         "description": "Heading component"
+      },
+      "open": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },
@@ -72,7 +72,7 @@
     "displayName": "TheSection",
     "methods": [
       {
-        "name": "Header",
+        "name": "Body",
         "docblock": null,
         "modifiers": [
           "static"
@@ -86,7 +86,7 @@
         "returns": null
       },
       {
-        "name": "Body",
+        "name": "Header",
         "docblock": null,
         "modifiers": [
           "static"
@@ -109,6 +109,12 @@
         "description": "",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "role": {
+        "defaultValue": {
+          "value": "'region'",
           "computed": false
         }
       }
