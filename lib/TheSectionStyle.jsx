@@ -1,13 +1,13 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { TheStyle } from 'the-style'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { asStyleData } from 'the-component-util'
+import { TheStyle } from 'the-style'
 
 /** Style for TheSection */
-const TheSectionStyle = ({id, className, options}) => (
+const TheSectionStyle = ({className, id, options}) => (
   <TheStyle {...{id}}
             className={classnames('the-section-style', className)}
             styles={TheSectionStyle.data(options)}
@@ -17,109 +17,109 @@ const TheSectionStyle = ({id, className, options}) => (
 TheSectionStyle.displayName = 'TheSectionStyle'
 TheSectionStyle.propTypes = {
   /** Style options */
-  options: PropTypes.object
+  options: PropTypes.object,
 }
 
 TheSectionStyle.defaultProps = {
-  options: {}
+  options: {},
 }
 
 TheSectionStyle.data = (options) => {
   const {ThemeValues} = TheStyle
   const {
-    borderColor = ThemeValues.borderColor,
-    lightBorderColor = ThemeValues.lightBorderColor,
-    backgroundColor = ThemeValues.backgroundColor,
-    tappableHeight = ThemeValues.tappableHeight,
-    hoverOpacity = ThemeValues.hoverOpacity,
     activeOpacity = ThemeValues.activeOpacity,
+    backgroundColor = ThemeValues.backgroundColor,
+    borderColor = ThemeValues.borderColor,
+    hoverOpacity = ThemeValues.hoverOpacity,
+    lightBorderColor = ThemeValues.lightBorderColor,
+    tappableHeight = ThemeValues.tappableHeight,
   } = options
   return Object.assign({},
     asStyleData('.the-section', {
-      '&': {
-        margin: '16px 0',
-        display: 'block',
-        fontWeight: 'normal',
-        backgroundColor,
-        position: 'relative'
-      },
-      '.the-section-header': {
-        borderBottom: borderColor,
-        fontWeight: 'normal',
-        margin: 0,
-        position: 'relative',
-        boxSizing: 'border-box',
-        padding: '0 8px 8px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        '&.the-section-header-lined': {
-          fontSize: '14px',
-          borderBottom: '1px solid #F0F0F0',
-          lineHeight: '16px',
-          padding: '0 8px',
-          marginBottom: '4px',
-          color: '#999'
-        },
-        '.the-section-header-action': {
-          minHeight: '16px',
-          margin: 0,
-          padding: '2px 4px',
-          flexGrow: 0,
-        }
-      },
       '.the-section-body': {
         display: 'block',
-        padding: '8px'
-      }
+        padding: '8px',
+      },
+      '.the-section-header': {
+        '.the-section-header-action': {
+          flexGrow: 0,
+          margin: 0,
+          minHeight: '16px',
+          padding: '2px 4px',
+        },
+        '&.the-section-header-lined': {
+          borderBottom: '1px solid #F0F0F0',
+          color: '#999',
+          fontSize: '14px',
+          lineHeight: '16px',
+          marginBottom: '4px',
+          padding: '0 8px',
+        },
+        alignItems: 'center',
+        borderBottom: borderColor,
+        boxSizing: 'border-box',
+        display: 'flex',
+        fontWeight: 'normal',
+        justifyContent: 'space-between',
+        margin: 0,
+        padding: '0 8px 8px',
+        position: 'relative',
+      },
+      '&': {
+        backgroundColor,
+        display: 'block',
+        fontWeight: 'normal',
+        margin: '16px 0',
+        position: 'relative',
+      },
     }),
     asStyleData('.the-accordion-section', {
-      '&': {
-        transition: 'max-height 300ms',
-        overflow: 'hidden',
-        border: `1px solid ${borderColor}`,
-        borderRadius: '4px',
-        backgroundColor
+      '.the-accordion-header-icon': {
+        boxSizing: 'border-box',
+        height: '1em',
+        textAlign: 'center',
+        transform: 'rotate(90deg)',
+        transformOrigin: '50% 50%',
+        transition: 'transform 100ms',
+        width: '1em',
       },
       '.the-accordion-section-inner': {},
+      '.the-section-body': {
+        overflow: 'hidden',
+      },
       '.the-section-header': {
+        '&:active': {opacity: activeOpacity},
+        '&:hover': {opacity: hoverOpacity},
+        alignItems: 'center',
         backgroundColor,
         border: `1px solid ${borderColor}`,
         borderRadius: '4px',
-        display: 'flex',
-        padding: 0,
-        alignItems: 'center',
-        margin: '-1px',
-        fontSize: '1em',
         cursor: 'pointer',
-        '&:hover': {opacity: hoverOpacity},
-        '&:active': {opacity: activeOpacity},
-        position: 'relative',
-        lineHeight: tappableHeight,
+        display: 'flex',
+        fontSize: '1em',
         height: tappableHeight + 2,
-        zIndex: 1
+        lineHeight: tappableHeight,
+        margin: '-1px',
+        padding: 0,
+        position: 'relative',
+        zIndex: 1,
       },
-      '.the-section-body': {
-        overflow: 'hidden'
-      },
-      '.the-accordion-header-icon': {
-        transformOrigin: '50% 50%',
-        transform: 'rotate(90deg)',
-        transition: 'transform 100ms',
-        boxSizing: 'border-box',
-        textAlign: 'center',
-        width: '1em',
-        height: '1em'
+      '&': {
+        backgroundColor,
+        border: `1px solid ${borderColor}`,
+        borderRadius: '4px',
+        overflow: 'hidden',
+        transition: 'max-height 300ms',
       },
       '&.the-accordion-section-closed': {
-        maxHeight: `${tappableHeight}px !important`
+        maxHeight: `${tappableHeight}px !important`,
       },
       '&.the-accordion-section-open': {
-        '.the-section-body': {},
         '.the-accordion-header-icon': {
-          transform: 'rotate(180deg)'
-        }
-      }
+          transform: 'rotate(180deg)',
+        },
+        '.the-section-body': {},
+      },
     })
   )
 }

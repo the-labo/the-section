@@ -1,39 +1,70 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import TheSection from './TheSection'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
 import { TheIcon } from 'the-icon'
-import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
+import TheSection from './TheSection'
 
 /**
  * Accordion section
  */
 class TheAccordionSection extends React.Component {
+  static Body (props) {
+    let {children, className} = props
+    return (
+      <TheSection.Body {...htmlAttributesFor(props, {except: ['className']})}
+                       {...eventHandlersFor(props, {except: []})}
+                       className={classnames('the-accordion-section-body', className)}
+      >
+        {children}
+      </TheSection.Body>
+    )
+  }
+
+  static Header (props) {
+    let {children, className} = props
+    return (
+      <TheSection.Header {...htmlAttributesFor(props, {except: ['className']})}
+                         {...eventHandlersFor(props, {except: []})}
+                         className={classnames('the-accordion-section-header', className)}
+      >
+        <TheIcon className={classnames('the-accordion-header-icon', TheAccordionSection.UP_ICON)}/>
+        <span>{children}</span>
+      </TheSection.Header>
+    )
+  }
+
   constructor (props) {
     super(props)
     this.inner = null
     this.state = {
-      open: props.open
+      open: props.open,
     }
+  }
+
+  getInnerHeight () {
+    let {inner} = this
+    return inner && inner.offsetHeight
   }
 
   render () {
     const {props, state} = this
     let {
-      className,
       children,
-      heading
+      className,
+      heading,
     } = props
     let {open} = state
-    const {Header, Body} = TheAccordionSection
+    const {Body, Header} = TheAccordionSection
     return (
       <TheSection {...htmlAttributesFor(props, {except: ['className']})}
                   {...eventHandlersFor(props, {except: []})}
+                  aria-expanded={open}
                   className={classnames('the-accordion-section', className, {
+                    'the-accordion-section-closed': !open,
                     'the-accordion-section-open': open,
-                    'the-accordion-section-closed': !open
                   })}
                   style={{maxHeight: this.getInnerHeight()}}
       >
@@ -53,40 +84,10 @@ class TheAccordionSection extends React.Component {
     )
   }
 
-  getInnerHeight () {
-    let {inner} = this
-    return inner && inner.offsetHeight
-  }
-
   toggleOpen () {
     this.setState({
-      open: !this.state.open
+      open: !this.state.open,
     })
-  }
-
-  static Header (props) {
-    let {className, children} = props
-    return (
-      <TheSection.Header {...htmlAttributesFor(props, {except: ['className']})}
-                         {...eventHandlersFor(props, {except: []})}
-                         className={classnames('the-accordion-section-header', className)}
-      >
-        <TheIcon className={classnames('the-accordion-header-icon', TheAccordionSection.UP_ICON)}/>
-        <span>{children}</span>
-      </TheSection.Header>
-    )
-  }
-
-  static Body (props) {
-    let {className, children} = props
-    return (
-      <TheSection.Body {...htmlAttributesFor(props, {except: ['className']})}
-                       {...eventHandlersFor(props, {except: []})}
-                       className={classnames('the-accordion-section-body', className)}
-      >
-        {children}
-      </TheSection.Body>
-    )
   }
 }
 
@@ -94,13 +95,13 @@ TheAccordionSection.UP_ICON = 'fa fa-angle-up'
 
 TheAccordionSection.propTypes = {
   /** Open  when mounted */
-  open: PropTypes.bool,
   /** Heading component */
-  heading: PropTypes.node.isRequired
+  heading: PropTypes.node.isRequired,
+  open: PropTypes.bool,
 }
 
 TheAccordionSection.defaultProps = {
-  open: false
+  open: false,
 }
 
 TheAccordionSection.displayName = 'TheAccordionSection'

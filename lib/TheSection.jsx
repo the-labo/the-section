@@ -1,74 +1,19 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import c from 'classnames'
-import { TheSpin } from 'the-spin'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { TheButton } from 'the-button'
+import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
+import { TheSpin } from 'the-spin'
 import TheSectionStyle from './TheSectionStyle'
-import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
 /**
  * Section of the-components
  */
 class TheSection extends React.Component {
-  render () {
-    const {props} = this
-    const {
-      className,
-      spinning,
-      children
-    } = props
-    return (
-      <section {...htmlAttributesFor(props, {except: ['className']})}
-               {...eventHandlersFor(props, {except: []})}
-               className={c('the-section', className)}
-      >
-        <TheSpin className='the-section-spin'
-                 cover
-                 size='x-large'
-                 enabled={spinning}/>
-        {children}
-      </section>
-    )
-  }
-
-  static Header (props) {
-    const {
-      className,
-      children,
-      lined,
-      actionText,
-      actionIcon,
-      actionTo,
-      onAction
-    } = props
-    return (
-      <h2 {...htmlAttributesFor(props, {except: ['className']})}
-          {...eventHandlersFor(props, {except: []})}
-          className={c('the-section-header', className, {
-            'the-section-header-lined': lined
-          })}
-      >
-        <span className="the-section-header-text">
-          {children}
-        </span>
-        {
-          actionText && (
-            <TheButton className='the-section-header-action'
-                       to={actionTo}
-                       icon={actionIcon}
-                       onClick={onAction}
-                       simple
-            >{actionText}</TheButton>
-          )
-        }
-      </h2>
-    )
-  }
-
   static Body (props) {
-    let {className, children} = props
+    let {children, className} = props
     return (
       <div {...htmlAttributesFor(props, {except: ['className']})}
            {...eventHandlersFor(props, {except: []})}
@@ -78,16 +23,75 @@ class TheSection extends React.Component {
       </div>
     )
   }
+
+  static Header (props) {
+    const {
+      actionIcon,
+      actionText,
+      actionTo,
+      children,
+      className,
+      lined,
+      onAction,
+      role = 'heading',
+    } = props
+    return (
+      <h2 {...htmlAttributesFor(props, {except: ['className']})}
+          {...eventHandlersFor(props, {except: []})}
+          className={c('the-section-header', className, {
+            'the-section-header-lined': lined,
+          })}
+          role={role}
+      >
+        <span className='the-section-header-text'>
+          {children}
+        </span>
+        {
+          actionText && (
+            <TheButton className='the-section-header-action'
+                       icon={actionIcon}
+                       onClick={onAction}
+                       simple
+                       to={actionTo}
+            >{actionText}</TheButton>
+          )
+        }
+      </h2>
+    )
+  }
+
+  render () {
+    const {props} = this
+    const {
+      children,
+      className,
+      spinning,
+    } = props
+    return (
+      <section {...htmlAttributesFor(props, {except: ['className']})}
+               {...eventHandlersFor(props, {except: []})}
+               aria-busy={spinning}
+               className={c('the-section', className)}
+      >
+        <TheSpin className='the-section-spin'
+                 cover
+                 enabled={spinning}
+                 size='x-large'/>
+        {children}
+      </section>
+    )
+  }
 }
 
 TheSection.Style = TheSectionStyle
 
 TheSection.propTypes = {
-  spinning: PropTypes.bool
+  spinning: PropTypes.bool,
 }
 
 TheSection.defaultProps = {
-  spinning: false
+  role: 'region',
+  spinning: false,
 }
 
 TheSection.displayName = 'TheSection'
