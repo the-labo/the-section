@@ -151,8 +151,8 @@ Accordion section
 
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
-| `open` | bool  | Open  when mounted | `false` |
 | `heading` | node  | Heading component | `` |
+| `open` | bool  |  | `false` |
 
 ### TheSection
 
@@ -163,6 +163,7 @@ Section of the-components
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `spinning` | bool  |  | `false` |
+| `role` |   |  | `'region'` |
 
 ### TheSectionStyle
 

@@ -98,7 +98,7 @@ TheSectionStyle.data = (options) => {
         display: 'flex',
         fontSize: '1em',
         height: tappableHeight + 2,
-        lineHeight: tappableHeight,
+        lineHeight: `${tappableHeight}px`,
         margin: '-1px',
         padding: 0,
         position: 'relative',
