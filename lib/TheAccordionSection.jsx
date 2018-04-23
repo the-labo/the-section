@@ -39,24 +39,35 @@ class TheAccordionSection extends React.Component {
   constructor (props) {
     super(props)
     this.inner = null
+    this.resizeTimer = null
     this.state = {
+      maxHeight: '100%',
       open: props.open,
     }
   }
 
+  componentDidMount () {
+    this.resize()
+    this.resizeTimer = setInterval(() => this.resize(), 500)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.resizeTimer)
+  }
+
   getInnerHeight () {
-    let {inner} = this
+    const {inner} = this
     return inner && inner.offsetHeight
   }
 
   render () {
     const {props, state} = this
-    let {
+    const {
       children,
       className,
       heading,
     } = props
-    let {open} = state
+    const {maxHeight, open} = state
     const {Body, Header} = TheAccordionSection
     return (
       <TheSection {...htmlAttributesFor(props, {except: ['className']})}
@@ -66,7 +77,7 @@ class TheAccordionSection extends React.Component {
                     'the-accordion-section-closed': !open,
                     'the-accordion-section-open': open,
                   })}
-                  style={{maxHeight: this.getInnerHeight()}}
+                  style={{maxHeight}}
       >
         <div className='the-accordion-section-inner'
              ref={(inner) => { this.inner = inner }}
@@ -82,6 +93,13 @@ class TheAccordionSection extends React.Component {
         </div>
       </TheSection>
     )
+  }
+
+  resize () {
+    const maxHeight = this.getInnerHeight()
+    if (this.state.maxHeight !== maxHeight) {
+      this.setState({maxHeight: maxHeight})
+    }
   }
 
   toggleOpen () {

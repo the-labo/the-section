@@ -39,6 +39,13 @@
         "returns": null
       },
       {
+        "name": "resize",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
         "name": "toggleOpen",
         "docblock": null,
         "modifiers": [],
