@@ -25,7 +25,7 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "the-component-demo": "^4.0.12",
-    "the-script-build": "^3.1.10",
+    "the-script-build": "^3.1.11",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
