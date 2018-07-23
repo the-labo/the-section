@@ -12,26 +12,26 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "prop-types": "^15.6.1",
-    "the-button": "^3.0.20",
-    "the-component-util": "^2.3.0",
-    "the-icon": "^4.0.6",
-    "the-spin": "^3.1.2",
-    "the-style": "^2.1.4"
+    "prop-types": "^15.6.2",
+    "the-button": "^3.0.21",
+    "the-component-util": "^2.4.0",
+    "the-icon": "^4.0.8",
+    "the-spin": "^3.1.7",
+    "the-style": "^2.1.13"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.0.0-beta.51",
+    "@babel/runtime": "*",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "the-component-demo": "^4.0.12",
-    "the-script-build": "^3.1.11",
+    "the-script-build": "^3.1.17",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.1.1",
-    "the-script-update": "^1.0.0",
-    "the-templates": "^3.2.1"
+    "the-script-update": "^2.0.0",
+    "the-templates": "^4.0.20"
   },
   "engines": {
     "node": ">=6",

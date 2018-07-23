@@ -10,8 +10,7 @@ import TheSection from './TheSection'
 import TheSectionStyle from './TheSectionStyle'
 
 export {
-  TheAccordionSection,
-  TheSection,
-  TheSectionStyle,
+ TheAccordionSection,
+ TheSection,
+ TheSectionStyle,
 }
-
