@@ -13,25 +13,25 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
-    "the-button": "^3.0.21",
-    "the-component-util": "^2.4.0",
-    "the-icon": "^4.0.8",
-    "the-spin": "^3.1.7",
-    "the-style": "^2.1.13"
+    "the-button": "^3.0.25",
+    "the-component-util": "^3.0.3",
+    "the-icon": "^4.0.9",
+    "the-spin": "^3.1.9",
+    "the-style": "^2.2.0"
   },
   "devDependencies": {
     "@babel/runtime": "*",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
-    "the-component-demo": "^4.0.12",
-    "the-script-build": "^3.1.17",
+    "the-component-demo": "^4.0.14",
+    "the-script-build": "^4.0.3",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
-    "the-script-test": "^2.1.1",
+    "the-script-test": "^2.1.2",
     "the-script-update": "^2.0.0",
-    "the-templates": "^4.0.20"
+    "the-templates": "^4.0.23"
   },
   "engines": {
     "node": ">=6",
