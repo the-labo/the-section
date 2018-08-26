@@ -47,7 +47,7 @@ class TheSection extends React.Component {
           {children}
         </span>
         {
-          actionText && (
+          Boolean(actionIcon || actionText) && (
             <TheButton className='the-section-header-action'
                        icon={actionIcon}
                        onClick={onAction}
