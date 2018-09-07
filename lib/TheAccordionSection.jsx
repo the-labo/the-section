@@ -24,14 +24,14 @@ class TheAccordionSection extends React.Component {
   }
 
   static Header (props) {
-    let {children, className} = props
+    const {children, className} = props
     return (
       <TheSection.Header {...htmlAttributesFor(props, {except: ['className']})}
                          {...eventHandlersFor(props, {except: []})}
                          className={classnames('the-accordion-section-header', className)}
       >
         <TheIcon className={classnames('the-accordion-header-icon', TheAccordionSection.UP_ICON)}/>
-        <span>{children}</span>
+        <span className='the-accordion-header-children'>{children}</span>
       </TheSection.Header>
     )
   }
@@ -40,6 +40,7 @@ class TheAccordionSection extends React.Component {
     super(props)
     this.inner = null
     this.resizeTimer = null
+    this.handleToggle = this.handleToggle.bind(this)
     this.state = {
       maxHeight: '100%',
       open: props.open,
@@ -58,6 +59,10 @@ class TheAccordionSection extends React.Component {
   getInnerHeight () {
     const {inner} = this
     return inner && inner.offsetHeight
+  }
+
+  handleToggle () {
+    this.toggleOpen()
   }
 
   render () {
@@ -82,7 +87,7 @@ class TheAccordionSection extends React.Component {
         <div className='the-accordion-section-inner'
              ref={(inner) => { this.inner = inner }}
         >
-          <Header onClick={(e) => this.toggleOpen()}
+          <Header onClick={this.handleToggle}
                   open={open}
           >
             {heading}
