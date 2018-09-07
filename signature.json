@@ -39,6 +39,13 @@
         "returns": null
       },
       {
+        "name": "handleToggle",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
         "name": "resize",
         "docblock": null,
         "modifiers": [],
