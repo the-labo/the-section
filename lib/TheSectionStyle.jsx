@@ -7,8 +7,8 @@ import { asStyleData } from 'the-component-util'
 import { TheStyle } from 'the-style'
 
 /** Style for TheSection */
-const TheSectionStyle = ({className, id, options}) => (
-  <TheStyle {...{id}}
+const TheSectionStyle = ({ className, id, options }) => (
+  <TheStyle {...{ id }}
             className={classnames('the-section-style', className)}
             styles={TheSectionStyle.data(options)}
   />
@@ -25,7 +25,7 @@ TheSectionStyle.defaultProps = {
 }
 
 TheSectionStyle.data = (options) => {
-  const {ThemeValues} = TheStyle
+  const { ThemeValues } = TheStyle
   const {
     activeOpacity = ThemeValues.activeOpacity,
     backgroundColor = ThemeValues.backgroundColor,
@@ -88,8 +88,8 @@ TheSectionStyle.data = (options) => {
         overflow: 'hidden',
       },
       '.the-section-header': {
-        '&:active': {opacity: activeOpacity},
-        '&:hover': {opacity: hoverOpacity},
+        '&:active': { opacity: activeOpacity },
+        '&:hover': { opacity: hoverOpacity },
         alignItems: 'center',
         backgroundColor,
         border: `1px solid ${borderColor}`,

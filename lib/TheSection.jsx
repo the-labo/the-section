@@ -6,17 +6,16 @@ import React from 'react'
 import { TheButton } from 'the-button'
 import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
 import { TheSpin } from 'the-spin'
-import TheSectionStyle from './TheSectionStyle'
 
 /**
  * Section of the-components
  */
 class TheSection extends React.Component {
   static Body (props) {
-    let {children, className} = props
+    let { children, className } = props
     return (
-      <div {...htmlAttributesFor(props, {except: ['className']})}
-           {...eventHandlersFor(props, {except: []})}
+      <div {...htmlAttributesFor(props, { except: ['className'] })}
+           {...eventHandlersFor(props, { except: [] })}
            className={c('the-section-body', className)}
       >
         {children}
@@ -36,8 +35,8 @@ class TheSection extends React.Component {
       role = 'heading',
     } = props
     return (
-      <h2 {...htmlAttributesFor(props, {except: ['className']})}
-          {...eventHandlersFor(props, {except: []})}
+      <h2 {...htmlAttributesFor(props, { except: ['className'] })}
+          {...eventHandlersFor(props, { except: [] })}
           className={c('the-section-header', className, {
             'the-section-header-lined': lined,
           })}
@@ -61,15 +60,15 @@ class TheSection extends React.Component {
   }
 
   render () {
-    const {props} = this
+    const { props } = this
     const {
       children,
       className,
       spinning,
     } = props
     return (
-      <section {...htmlAttributesFor(props, {except: ['className']})}
-               {...eventHandlersFor(props, {except: []})}
+      <section {...htmlAttributesFor(props, { except: ['className'] })}
+               {...eventHandlersFor(props, { except: [] })}
                aria-busy={spinning}
                className={c('the-section', className)}
       >
@@ -82,8 +81,6 @@ class TheSection extends React.Component {
     )
   }
 }
-
-TheSection.Style = TheSectionStyle
 
 TheSection.propTypes = {
   spinning: PropTypes.bool,

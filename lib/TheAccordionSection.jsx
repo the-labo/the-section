@@ -12,10 +12,10 @@ import TheSection from './TheSection'
  */
 class TheAccordionSection extends React.Component {
   static Body (props) {
-    let {children, className} = props
+    let { children, className } = props
     return (
-      <TheSection.Body {...htmlAttributesFor(props, {except: ['className']})}
-                       {...eventHandlersFor(props, {except: []})}
+      <TheSection.Body {...htmlAttributesFor(props, { except: ['className'] })}
+                       {...eventHandlersFor(props, { except: [] })}
                        className={classnames('the-accordion-section-body', className)}
       >
         {children}
@@ -24,10 +24,10 @@ class TheAccordionSection extends React.Component {
   }
 
   static Header (props) {
-    const {children, className} = props
+    const { children, className } = props
     return (
-      <TheSection.Header {...htmlAttributesFor(props, {except: ['className']})}
-                         {...eventHandlersFor(props, {except: []})}
+      <TheSection.Header {...htmlAttributesFor(props, { except: ['className'] })}
+                         {...eventHandlersFor(props, { except: [] })}
                          className={classnames('the-accordion-section-header', className)}
       >
         <TheIcon className={classnames('the-accordion-header-icon', TheAccordionSection.UP_ICON)}/>
@@ -57,7 +57,7 @@ class TheAccordionSection extends React.Component {
   }
 
   getInnerHeight () {
-    const {inner} = this
+    const { inner } = this
     return inner && inner.offsetHeight
   }
 
@@ -66,23 +66,23 @@ class TheAccordionSection extends React.Component {
   }
 
   render () {
-    const {props, state} = this
+    const { props, state } = this
     const {
       children,
       className,
       heading,
     } = props
-    const {maxHeight, open} = state
-    const {Body, Header} = TheAccordionSection
+    const { maxHeight, open } = state
+    const { Body, Header } = TheAccordionSection
     return (
-      <TheSection {...htmlAttributesFor(props, {except: ['className']})}
-                  {...eventHandlersFor(props, {except: []})}
+      <TheSection {...htmlAttributesFor(props, { except: ['className'] })}
+                  {...eventHandlersFor(props, { except: [] })}
                   aria-expanded={open}
                   className={classnames('the-accordion-section', className, {
                     'the-accordion-section-closed': !open,
                     'the-accordion-section-open': open,
                   })}
-                  style={{maxHeight}}
+                  style={{ maxHeight }}
       >
         <div className='the-accordion-section-inner'
              ref={(inner) => { this.inner = inner }}
@@ -103,7 +103,7 @@ class TheAccordionSection extends React.Component {
   resize () {
     const maxHeight = this.getInnerHeight()
     if (this.state.maxHeight !== maxHeight) {
-      this.setState({maxHeight: maxHeight})
+      this.setState({ maxHeight: maxHeight })
     }
   }
 
