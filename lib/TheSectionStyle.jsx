@@ -36,6 +36,13 @@ TheSectionStyle.data = (options) => {
   } = options
   return Object.assign({},
     asStyleData({
+      '.the-section': {
+        backgroundColor,
+        display: 'block',
+        fontWeight: 'normal',
+        margin: '16px 0',
+        position: 'relative',
+      },
       '.the-section-body': {
         display: 'block',
         padding: '8px',
@@ -65,13 +72,6 @@ TheSectionStyle.data = (options) => {
         padding: '0 8px 8px',
         position: 'relative',
       },
-      '.the-section': {
-        backgroundColor,
-        display: 'block',
-        fontWeight: 'normal',
-        margin: '16px 0',
-        position: 'relative',
-      },
     }),
     asStyleData({
       '.the-accordion-header-icon': {
@@ -83,7 +83,23 @@ TheSectionStyle.data = (options) => {
         transition: 'transform 100ms',
         width: '1em',
       },
+      '.the-accordion-section': {
+        backgroundColor,
+        border: `1px solid ${borderColor}`,
+        borderRadius: '4px',
+        overflow: 'hidden',
+        transition: 'max-height 300ms',
+      },
       '.the-accordion-section-inner': {},
+      '.the-accordion-section.the-accordion-section-closed': {
+        maxHeight: `${tappableHeight}px !important`,
+      },
+      '.the-accordion-section.the-accordion-section-open': {
+        '.the-accordion-header-icon': {
+          transform: 'rotate(180deg)',
+        },
+        '.the-section-body': {},
+      },
       '.the-section-body': {
         overflow: 'hidden',
       },
@@ -103,22 +119,6 @@ TheSectionStyle.data = (options) => {
         padding: 0,
         position: 'relative',
         zIndex: 1,
-      },
-      '.the-accordion-section': {
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
-        borderRadius: '4px',
-        overflow: 'hidden',
-        transition: 'max-height 300ms',
-      },
-      '.the-accordion-section.the-accordion-section-closed': {
-        maxHeight: `${tappableHeight}px !important`,
-      },
-      '.the-accordion-section.the-accordion-section-open': {
-        '.the-accordion-header-icon': {
-          transform: 'rotate(180deg)',
-        },
-        '.the-section-body': {},
       },
     })
   )
