@@ -35,7 +35,7 @@ TheSectionStyle.data = (options) => {
     tappableHeight = ThemeValues.tappableHeight,
   } = options
   return Object.assign({},
-    asStyleData('.the-section', {
+    asStyleData({
       '.the-section-body': {
         display: 'block',
         padding: '8px',
@@ -65,7 +65,7 @@ TheSectionStyle.data = (options) => {
         padding: '0 8px 8px',
         position: 'relative',
       },
-      '&': {
+      '.the-section': {
         backgroundColor,
         display: 'block',
         fontWeight: 'normal',
@@ -73,7 +73,7 @@ TheSectionStyle.data = (options) => {
         position: 'relative',
       },
     }),
-    asStyleData('.the-accordion-section', {
+    asStyleData({
       '.the-accordion-header-icon': {
         boxSizing: 'border-box',
         height: '1em',
@@ -104,17 +104,17 @@ TheSectionStyle.data = (options) => {
         position: 'relative',
         zIndex: 1,
       },
-      '&': {
+      '.the-accordion-section': {
         backgroundColor,
         border: `1px solid ${borderColor}`,
         borderRadius: '4px',
         overflow: 'hidden',
         transition: 'max-height 300ms',
       },
-      '&.the-accordion-section-closed': {
+      '.the-accordion-section.the-accordion-section-closed': {
         maxHeight: `${tappableHeight}px !important`,
       },
-      '&.the-accordion-section-open': {
+      '.the-accordion-section.the-accordion-section-open': {
         '.the-accordion-header-icon': {
           transform: 'rotate(180deg)',
         },
