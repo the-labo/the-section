@@ -90,20 +90,10 @@ TheSectionStyle.data = (options) => {
         overflow: 'hidden',
         transition: 'max-height 300ms',
       },
-      '.the-accordion-section-inner': {},
-      '.the-accordion-section.the-accordion-section-closed': {
-        maxHeight: `${tappableHeight}px !important`,
-      },
-      '.the-accordion-section.the-accordion-section-open': {
-        '.the-accordion-header-icon': {
-          transform: 'rotate(180deg)',
-        },
-        '.the-section-body': {},
-      },
-      '.the-section-body': {
+      '.the-accordion-section .the-section-body': {
         overflow: 'hidden',
       },
-      '.the-section-header': {
+      '.the-accordion-section .the-section-header': {
         '&:active': { opacity: activeOpacity },
         '&:hover': { opacity: hoverOpacity },
         alignItems: 'center',
@@ -119,6 +109,16 @@ TheSectionStyle.data = (options) => {
         padding: 0,
         position: 'relative',
         zIndex: 1,
+      },
+      '.the-accordion-section-inner': {},
+      '.the-accordion-section.the-accordion-section-closed': {
+        maxHeight: `${tappableHeight}px !important`,
+      },
+      '.the-accordion-section.the-accordion-section-open': {
+        '.the-accordion-header-icon': {
+          transform: 'rotate(180deg)',
+        },
+        '.the-section-body': {},
       },
     })
   )
