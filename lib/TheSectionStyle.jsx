@@ -47,13 +47,13 @@ TheSectionStyle.data = (options) => {
         display: 'block',
         padding: '8px',
       },
+      '.the-section-header-action': {
+        flexGrow: 0,
+        margin: 0,
+        minHeight: '16px',
+        padding: '2px 4px',
+      },
       '.the-section-header': {
-        '.the-section-header-action': {
-          flexGrow: 0,
-          margin: 0,
-          minHeight: '16px',
-          padding: '2px 4px',
-        },
         '&.the-section-header-lined': {
           borderBottom: '1px solid #F0F0F0',
           color: '#999',
