@@ -68,12 +68,23 @@
         "required": true,
         "description": "Heading component"
       },
+      "onToggle": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Callback when toggle",
+        "defaultValue": {
+          "value": "() => null",
+          "computed": false
+        }
+      },
       "open": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "",
+        "description": "Open  when mounted",
         "defaultValue": {
           "value": "false",
           "computed": false
