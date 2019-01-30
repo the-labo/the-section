@@ -72,6 +72,10 @@ TheSectionStyle.data = (options) => {
         minHeight: '16px',
         padding: '2px 4px',
       },
+      '.the-section-header-text': {
+        display: 'block',
+        width: '100%',
+      },
     }),
     asStyleData({
       '.the-accordion-header-icon': {

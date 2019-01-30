@@ -108,22 +108,26 @@ class TheAccordionSection extends React.Component {
   }
 
   toggleOpen () {
-    this.setState({
-      open: !this.state.open,
-    })
+    const open = !this.state.open
+    this.setState({ open })
+    const { onToggle } = this.props
+    onToggle && onToggle(open)
   }
 }
 
-TheAccordionSection.UP_ICON = 'fa fa-angle-up'
+TheAccordionSection.UP_ICON = 'fas fa-angle-up'
 
 TheAccordionSection.propTypes = {
-  /** Open  when mounted */
   /** Heading component */
   heading: PropTypes.node.isRequired,
+  /** Callback when toggle */
+  onToggle: PropTypes.func,
+  /** Open  when mounted */
   open: PropTypes.bool,
 }
 
 TheAccordionSection.defaultProps = {
+  onToggle: () => null,
   open: false,
 }
 
