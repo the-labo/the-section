@@ -8,9 +8,10 @@ import { TheStyle } from 'the-style'
 
 /** Style for TheSection */
 const TheSectionStyle = ({ className, id, options }) => (
-  <TheStyle {...{ id }}
-            className={classnames('the-section-style', className)}
-            styles={TheSectionStyle.data(options)}
+  <TheStyle
+    {...{ id }}
+    className={classnames('the-section-style', className)}
+    styles={TheSectionStyle.data(options)}
   />
 )
 
@@ -34,7 +35,8 @@ TheSectionStyle.data = (options) => {
     lightBorderColor = ThemeValues.lightBorderColor,
     tappableHeight = ThemeValues.tappableHeight,
   } = options
-  return Object.assign({},
+  return Object.assign(
+    {},
     asStyleData({
       '.the-section': {
         backgroundColor,
@@ -88,7 +90,6 @@ TheSectionStyle.data = (options) => {
         width: '1em',
       },
       '.the-accordion-section': {
-        backgroundColor,
         border: `1px solid ${borderColor}`,
         borderRadius: '4px',
         overflow: 'hidden',
@@ -101,7 +102,6 @@ TheSectionStyle.data = (options) => {
         '&:active': { opacity: activeOpacity },
         '&:hover': { opacity: hoverOpacity },
         alignItems: 'center',
-        backgroundColor,
         border: `1px solid ${borderColor}`,
         borderRadius: '4px',
         cursor: 'pointer',
@@ -124,7 +124,7 @@ TheSectionStyle.data = (options) => {
         },
         '.the-section-body': {},
       },
-    })
+    }),
   )
 }
 

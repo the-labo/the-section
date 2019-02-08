@@ -147,7 +147,8 @@ Accordion section
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `heading` | node  | Heading component | `` |
-| `open` | bool  |  | `false` |
+| `onToggle` | func  | Callback when toggle | `() => null` |
+| `open` | bool  | Open  when mounted | `false` |
 
 ### TheSection
 

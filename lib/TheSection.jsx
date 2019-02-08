@@ -11,19 +11,20 @@ import { TheSpin } from 'the-spin'
  * Section of the-components
  */
 class TheSection extends React.Component {
-  static Body (props) {
+  static Body(props) {
     let { children, className } = props
     return (
-      <div {...htmlAttributesFor(props, { except: ['className'] })}
-           {...eventHandlersFor(props, { except: [] })}
-           className={c('the-section-body', className)}
+      <div
+        {...htmlAttributesFor(props, { except: ['className'] })}
+        {...eventHandlersFor(props, { except: [] })}
+        className={c('the-section-body', className)}
       >
         {children}
       </div>
     )
   }
 
-  static Header (props) {
+  static Header(props) {
     const {
       actionIcon,
       actionText,
@@ -35,47 +36,46 @@ class TheSection extends React.Component {
       role = 'heading',
     } = props
     return (
-      <h2 {...htmlAttributesFor(props, { except: ['className'] })}
-          {...eventHandlersFor(props, { except: [] })}
-          className={c('the-section-header', className, {
-            'the-section-header-lined': lined,
-          })}
-          role={role}
+      <h2
+        {...htmlAttributesFor(props, { except: ['className'] })}
+        {...eventHandlersFor(props, { except: [] })}
+        className={c('the-section-header', className, {
+          'the-section-header-lined': lined,
+        })}
+        role={role}
       >
-        <span className='the-section-header-text'>
-          {children}
-        </span>
-        {
-          Boolean(actionIcon || actionText) && (
-            <TheButton className='the-section-header-action'
-                       icon={actionIcon}
-                       onClick={onAction}
-                       simple
-                       to={actionTo}
-            >{actionText}</TheButton>
-          )
-        }
+        <span className='the-section-header-text'>{children}</span>
+        {Boolean(actionIcon || actionText) && (
+          <TheButton
+            className='the-section-header-action'
+            icon={actionIcon}
+            onClick={onAction}
+            simple
+            to={actionTo}
+          >
+            {actionText}
+          </TheButton>
+        )}
       </h2>
     )
   }
 
-  render () {
+  render() {
     const { props } = this
-    const {
-      children,
-      className,
-      spinning,
-    } = props
+    const { children, className, spinning } = props
     return (
-      <section {...htmlAttributesFor(props, { except: ['className'] })}
-               {...eventHandlersFor(props, { except: [] })}
-               aria-busy={spinning}
-               className={c('the-section', className)}
+      <section
+        {...htmlAttributesFor(props, { except: ['className'] })}
+        {...eventHandlersFor(props, { except: [] })}
+        aria-busy={spinning}
+        className={c('the-section', className)}
       >
-        <TheSpin className='the-section-spin'
-                 cover
-                 enabled={spinning}
-                 size='x-large'/>
+        <TheSpin
+          className='the-section-spin'
+          cover
+          enabled={spinning}
+          size='x-large'
+        />
         {children}
       </section>
     )

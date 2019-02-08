@@ -11,32 +11,39 @@ import TheSection from './TheSection'
  * Accordion section
  */
 class TheAccordionSection extends React.Component {
-  static Body (props) {
+  static Body(props) {
     let { children, className } = props
     return (
-      <TheSection.Body {...htmlAttributesFor(props, { except: ['className'] })}
-                       {...eventHandlersFor(props, { except: [] })}
-                       className={classnames('the-accordion-section-body', className)}
+      <TheSection.Body
+        {...htmlAttributesFor(props, { except: ['className'] })}
+        {...eventHandlersFor(props, { except: [] })}
+        className={classnames('the-accordion-section-body', className)}
       >
         {children}
       </TheSection.Body>
     )
   }
 
-  static Header (props) {
+  static Header(props) {
     const { children, className } = props
     return (
-      <TheSection.Header {...htmlAttributesFor(props, { except: ['className'] })}
-                         {...eventHandlersFor(props, { except: [] })}
-                         className={classnames('the-accordion-section-header', className)}
+      <TheSection.Header
+        {...htmlAttributesFor(props, { except: ['className'] })}
+        {...eventHandlersFor(props, { except: [] })}
+        className={classnames('the-accordion-section-header', className)}
       >
-        <TheIcon className={classnames('the-accordion-header-icon', TheAccordionSection.UP_ICON)}/>
+        <TheIcon
+          className={classnames(
+            'the-accordion-header-icon',
+            TheAccordionSection.UP_ICON,
+          )}
+        />
         <span className='the-accordion-header-children'>{children}</span>
       </TheSection.Header>
     )
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.inner = null
     this.resizeTimer = null
@@ -47,67 +54,63 @@ class TheAccordionSection extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.resize()
     this.resizeTimer = setInterval(() => this.resize(), 500)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearInterval(this.resizeTimer)
   }
 
-  getInnerHeight () {
+  getInnerHeight() {
     const { inner } = this
     return inner && inner.offsetHeight
   }
 
-  handleToggle () {
+  handleToggle() {
     this.toggleOpen()
   }
 
-  render () {
+  render() {
     const { props, state } = this
-    const {
-      children,
-      className,
-      heading,
-    } = props
+    const { children, className, heading } = props
     const { maxHeight, open } = state
     const { Body, Header } = TheAccordionSection
     return (
-      <TheSection {...htmlAttributesFor(props, { except: ['className'] })}
-                  {...eventHandlersFor(props, { except: [] })}
-                  aria-expanded={open}
-                  className={classnames('the-accordion-section', className, {
-                    'the-accordion-section-closed': !open,
-                    'the-accordion-section-open': open,
-                  })}
-                  style={{ maxHeight }}
+      <TheSection
+        {...htmlAttributesFor(props, { except: ['className'] })}
+        {...eventHandlersFor(props, { except: [] })}
+        aria-expanded={open}
+        className={classnames('the-accordion-section', className, {
+          'the-accordion-section-closed': !open,
+          'the-accordion-section-open': open,
+        })}
+        style={{ maxHeight }}
       >
-        <div className='the-accordion-section-inner'
-             ref={(inner) => { this.inner = inner }}
+        <div
+          className='the-accordion-section-inner'
+          ref={(inner) => {
+            this.inner = inner
+          }}
         >
-          <Header onClick={this.handleToggle}
-                  open={open}
-          >
+          <Header onClick={this.handleToggle} open={open}>
             {heading}
           </Header>
-          <Body>
-          {children}
-          </Body>
+          <Body>{children}</Body>
         </div>
       </TheSection>
     )
   }
 
-  resize () {
+  resize() {
     const maxHeight = this.getInnerHeight()
     if (this.state.maxHeight !== maxHeight) {
       this.setState({ maxHeight: maxHeight })
     }
   }
 
-  toggleOpen () {
+  toggleOpen() {
     const open = !this.state.open
     this.setState({ open })
     const { onToggle } = this.props
