@@ -92,6 +92,7 @@ TheSectionStyle.data = (options) => {
       '.the-accordion-section': {
         border: `1px solid ${borderColor}`,
         borderRadius: '4px',
+        boxSizing: 'border-box',
         overflow: 'hidden',
         transition: 'max-height 300ms',
       },
